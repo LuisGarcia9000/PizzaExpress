@@ -31,13 +31,26 @@ const CreateOrder = ({ navigation, route }) => {
 
     const onCreateOrder = () => {
 
-        let orderIdAsNumber = Number(orderId)
+        if(!crust) {
+            alert('Crust is required')
+            return
+        }
+        if(!flavor) {
+            alert('Flavor is required')
+            return
+        }
+        if(!size) {
+            alert('Size is required')
+            return
+        }
+
         let tableNoAsNumber = Number(tableNo)
-        if (Number.isNaN(tableNoAsNumber)) {
+        let orderIdAsNumber = Number(orderId)
+        if (!tableNo || Number.isNaN(tableNoAsNumber)) {
             alert('Table No invalid, only numbers are valid.')
             return
         }
-        if (Number.isNaN(orderIdAsNumber)) {
+        if (!orderId || Number.isNaN(orderIdAsNumber)) {
             alert('Order Id invalid, only numbers are valid.')
             return
         }
